@@ -40,6 +40,8 @@ def main():
         now = datetime.now()
 
         if str(now.hour) == '9' or now.timestamp - last_run.timestamp() >= 86400:
+            browser = init_driver(driver_name)
+            facebook_auth(browser, login, login_pass)
             script_run(browser)
 
             last_run = datetime.now()
@@ -91,7 +93,7 @@ def script_run(browser):
 
     print('Successfully saved records.')
 
-
+    browser.close()
 
 if __name__ == '__main__':
     main()
