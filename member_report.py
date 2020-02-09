@@ -3,7 +3,7 @@ import time
 import getpass
 import json
 from datetime import datetime
-import config 
+import config
 from core.browser_tools import *
 from core.html_tools import *
 from core.gmail_client import *
@@ -77,6 +77,9 @@ def script_run(browser):
     new_count = len(new_members)
 
     with open('group_members.json', 'w') as f:
+        json.dump(members_as_dict, f)
+
+    with open('new_users.txt', 'w') as f:
         f.write(now.ctime())
         f.write('\n{} new members in group as of {}:{}:{}'.format(str(new_count), now.hour, now.minute, now.second))
 
