@@ -13,7 +13,7 @@ login = config.FACEBOOK_LOGIN
 driver_name = config.WEBDRIVER
 driver_path = config.CHROMEDRIVER_PATH
 output_dir = config.OUTPUT_DIR
-
+testing = config.TESTING
 def main():
     login_pass = getpass.getpass()
 
@@ -29,7 +29,7 @@ def main():
     print('Enter SMTP Auth password.')
     mail_pass = getpass.getpass()
 
-    setup_gmail(message, mail_pass)
+    setup_gmail(message, mail_pass, testing)
 
     last_run = datetime.now()
 
