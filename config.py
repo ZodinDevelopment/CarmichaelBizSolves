@@ -1,6 +1,8 @@
 #Configuration for the script
 
 #Webdriver, currently only supports Chrome
+#While this is True, output emails will only go to the development address
+TESTING = False 
 
 WEBDRIVER = 'Chrome'
 
