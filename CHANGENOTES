@@ -1,0 +1,7 @@
+V0.1
+===============
+Bugs:
+
+	In script_run() function, Chrome webdriver hangs during scriptbook succcessfull authorization due to alert prompt from Facebook application asking for notification permission. This is an issue considering our authorization token will likely not last between script executions. So far the only way to ignore the prompt and allow the webdriver to continue executing it's script is by manually dismissing or accepting the prompt. 
+
+
