@@ -1,0 +1,20 @@
+Install Google Chrome (v79)
+
+Download Chromedriver binary from Google, place in '/usr/local/bin/Chromedriver'
+
+Ensure Python 3.7 is installed
+
+Along with pip and venv 
+
+setup venv with:
+	$ python3 -m venv venv 
+
+Activate env with
+	$ source venv/bin/activate 
+
+Install dependencies 
+	$ python3 -m pip install -r requirements.txt
+
+Then Run script with 
+	$ python3 member_report.py
+

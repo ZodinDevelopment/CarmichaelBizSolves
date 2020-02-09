@@ -1,0 +1,7 @@
+at 16:57:50 Feb 8 2020 931 recorded members on page 
+
+
+
+test again, ensure that difference in members next trial correspond to the value recorded in the new_users.txt
+
+
