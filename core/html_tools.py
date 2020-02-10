@@ -21,8 +21,8 @@ def get_admin_count(source):
 
 def get_members(browser, members_in_group):
 
-    members = {}
-
+    #members = {}
+    '''
     while len(members) < members_in_group:
         source = browser.page_source
 
@@ -40,6 +40,25 @@ def get_members(browser, members_in_group):
 
         
         load_more(browser)
+        '''
+    
+    load_more(browser)
+    
+    members = {}
+    source = browser.page_source
+    soup = bs.BeautifulSoup(source, 'lxml')
+    member_section = soup.find('div', attrs={'id': 'groupsMemberSection_all_members'})
+
+    a_tags = member_section.find_all('a')
+    for a_tag in a_tags:
+        name = a_tag.attrs.get('title')
+        href = a_tag.attrs.get('href')
+        if name is not None:
+            if name not in members:
+                members[name] = href
+
+
+
 
     return members
 
