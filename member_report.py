@@ -39,7 +39,19 @@ def main():
 
         now = datetime.now()
 
-        if str(now.hour) == '9' or now.timestamp - last_run.timestamp() >= 86400:
+        # if str(now.hour) == '9' or now.timestamp - last_run.timestamp() >= 86400:
+            # browser = init_driver(driver_name)
+            # facebook_auth(browser, login, login_pass)
+            # script_run(browser)
+
+            # last_run = datetime.now()
+
+        # else:
+            # continue
+
+        if now.day == last_run.day:
+            continue
+        elif now.day > last_run.day and now.hour == 8 and now.minute >= 25:
             browser = init_driver(driver_name)
             facebook_auth(browser, login, login_pass)
             script_run(browser)
