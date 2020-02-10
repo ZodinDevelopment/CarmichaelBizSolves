@@ -1,7 +1,17 @@
 V0.1
 ===============
-Bugs:
+Bugs(SOLVED):
 
 	In script_run() function, Chrome webdriver hangs during scriptbook succcessfull authorization due to alert prompt from Facebook application asking for notification permission. This is an issue considering our authorization token will likely not last between script executions. So far the only way to ignore the prompt and allow the webdriver to continue executing it's script is by manually dismissing or accepting the prompt. 
+v0.1.2
 
+================
+TODO:
+
+	Currently, the method our main function uses to control the timing and execution schedule of the selenium script works on a 600 second (10 minute) sleep cycle. This means that while the program must run constantly, it's always in a state of suspension until the 600 seconds passes, where it fetches the current system time and compares it to the time for the previous execution of the selenium script. The intention behind the current design was to work with time values in seconds and get the difference between the two time values. The selenium script is nested in a conditional statement that is True when that difference calculated is equal to or greater than 86400 (seconds), which is the length of an average Day in seconds. Just recently, this method was expanded to also check for a specific time of day as well and make the conditional an OR logic. 
+
+	Unfortunately, while clever, the method has already raised unwelcome exceptions early in deployment, and therefore it's imperative that this method is redeveloped. 
+
+
+	[This is rather simple, cut out all the utc and seconds nonsense, just make it check every 600 seconds for the time. Compare datetime object attributes to the value depending on the desired time of script execution.]
 
