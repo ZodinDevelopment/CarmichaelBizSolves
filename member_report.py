@@ -95,10 +95,13 @@ def script_run(browser):
 
     with open('new_users.txt', 'w') as f:
         f.write(now.ctime())
-        f.write('\n{} new members in group as of {}:{}:{}'.format(str(new_count), now.hour, now.minute, now.second))
+        f.write('\n{} new members in group as of {}:{}:{}\n\n'.format(str(new_count), now.hour, now.minute, now.second))
 
         for key, member in enumerate(new_members):
-            f.write("[{}]: {}\n".format(str(key), member))
+            #f.write("[{}]: {}\n".format(str(key), member))
+            line = "[{}]: ".format(str(key)) + (" "*4) + "{}\n".format(member)
+            f.write(line)
+            f.write('-'*len(line) + '\n')
 
         f.write('\n')
         f.write('='*20)
