@@ -56,7 +56,7 @@ def load_more(browser):
         source = browser.page_source
         raw_size = len(source)
 
-        if raw_size = last_size:
+        if raw_size == last_size:
              print("All available content for this web page is now loaded into source.")
              data_loading = False 
 
