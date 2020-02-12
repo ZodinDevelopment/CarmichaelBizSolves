@@ -1,7 +1,8 @@
 import smtplib
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEBase import MIMEBase
-from email import Encoders 
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders 
 
 
 EMAIL_FROM = 'garrettdylan0702@gmail.com'
@@ -17,7 +18,7 @@ def send_report(dev_pass, testing):
     
     part = MIMEBase('application', "octet-stream")
     part.set_payload(open("new_users.txt", "rb").read())
-    Encoders.encode_base64(part)
+    encoders.encode_base64(part)
 
 
     part.add_header('Content-Disposition', 'attachment; filename="new_users.txt"')
