@@ -24,7 +24,7 @@ def facebook_auth(browser, login, login_pass):
     submit.click()
     print('Successfully retrieved login token for this webdriver instance.')
 
-def group_members_page(browser, page_url):
+def group_members_page(browser, group_url):
     print('Now using this authorized session to navigate to the web content containing our information of interest.')
     actions = webdriver.ActionChains(browser)
     keys = Keys()

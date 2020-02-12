@@ -23,7 +23,7 @@ def main():
     browser = init_driver(driver_name)
     facebook_auth(browser, login, login_pass)
 
-    script_run(browser)
+    script_run(browser, group_url)
 
     with open('new_users.txt', 'r') as f:
         report = f.read()
@@ -69,7 +69,7 @@ def main():
             continue
 
 
-def script_run(browser):
+def script_run(browser, group_url):
     group_members_page(browser, group_url)
     
     page_source = browser.page_source 
