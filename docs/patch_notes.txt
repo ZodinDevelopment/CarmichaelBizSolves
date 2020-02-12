@@ -1,0 +1,22 @@
+v0.2.0
+================================
+
+Up until this point in the development lifetime, patches have been minor in scope and mitigated minor bugs and mistaes strewn about as corpses of early development. With the successful cleansing of the overall project and what seemed to be the first point in development when testing declared a production ready for deployment. The final challenge in building the application was the confirmation that it had sent a message via SMTP containing the ouput file in it's contents to our dev mailbox AND the mailbox of the client who requested the project and would now be a paying subscriber to the services provided by the script. 
+
+Despite the absence of any exceptions or runtime errors, day 2 of product deployment brought a very peculiar and unexpected bug that delivered the automated email as a bare message, yet the very same message sent by the same client at the same moment to our dev mailbox delivered without a fault or error. 
+
+Dev is not quite sure exactly what the source of this bug was (it definitely was not anywhere visible in the code), however the fact that the successful message delivered to a  ProtonMail address while the misbehaving message delivered to a gmail. 
+
+Because we are now in production, we can little afford to waste any resources chasing down anomalies before patching them. This led me to what I would describe as the most effective and pythonic solution to the problem. If something is interfering with the output string the quickest, most logical thing to do is just send the actual file that the string was originally read from as an attachment. Preserving the state of our ouput and delivering it via the same channel of communication. 
+
+It was evident in the early stage of prototyping that desppite our pragmatic and simple approach, there would be no avoiding a complete rewrite of most of the code. 
+
+So, although our usecase and context remains rather untarnished by the corection, the output method had to be reconstructed with an added layer of abstraction (being the MESSAGE object.)
+
+This has inadvertantly introduced a very scalable and flexible layer to the our ouput control functions. 
+
+So yes, it is a patch in that there was a dreadful production halting bug present and v0.2.0's purpose was fixing it.
+Yet it's also not quite a patch in the classically defined sense, since it scales and adds scalability.
+
+Anyways, I present to you version 0.2.0! Don't get too comfortable with that 0 either real patches are sure to come and soon to come.
+

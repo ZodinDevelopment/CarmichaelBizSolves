@@ -1,0 +1,39 @@
+V0.1
+===============
+Bugs(SOLVED):
+
+	In script_run() function, Chrome webdriver hangs during scriptbook succcessfull authorization due to alert prompt from Facebook application asking for notification permission. This is an issue considering our authorization token will likely not last between script executions. So far the only way to ignore the prompt and allow the webdriver to continue executing it's script is by manually dismissing or accepting the prompt. 
+v0.1.2
+
+================
+TODO:
+
+	Currently, the method our main function uses to control the timing and execution schedule of the selenium script works on a 600 second (10 minute) sleep cycle. This means that while the program must run constantly, it's always in a state of suspension until the 600 seconds passes, where it fetches the current system time and compares it to the time for the previous execution of the selenium script. The intention behind the current design was to work with time values in seconds and get the difference between the two time values. The selenium script is nested in a conditional statement that is True when that difference calculated is equal to or greater than 86400 (seconds), which is the length of an average Day in seconds. Just recently, this method was expanded to also check for a specific time of day as well and make the conditional an OR logic. 
+
+	Unfortunately, while clever, the method has already raised unwelcome exceptions early in deployment, and therefore it's imperative that this method is redeveloped. 
+
+
+	[This is rather simple, cut out all the utc and seconds nonsense, just make it check every 600 seconds for the time. Compare datetime object attributes to the value depending on the desired time of script execution.]
+
+v0.2.0
+================================
+
+Up until this point in the development lifetime, patches have been minor in scope and mitigated minor bugs and mistaes strewn about as corpses of early development. With the successful cleansing of the overall project and what seemed to be the first point in development when testing declared a production ready for deployment. The final challenge in building the application was the confirmation that it had sent a message via SMTP containing the ouput file in it's contents to our dev mailbox AND the mailbox of the client who requested the project and would now be a paying subscriber to the services provided by the script. 
+
+Despite the absence of any exceptions or runtime errors, day 2 of product deployment brought a very peculiar and unexpected bug that delivered the automated email as a bare message, yet the very same message sent by the same client at the same moment to our dev mailbox delivered without a fault or error. 
+
+Dev is not quite sure exactly what the source of this bug was (it definitely was not anywhere visible in the code), however the fact that the successful message delivered to a  ProtonMail address while the misbehaving message delivered to a gmail. 
+
+Because we are now in production, we can little afford to waste any resources chasing down anomalies before patching them. This led me to what I would describe as the most effective and pythonic solution to the problem. If something is interfering with the output string the quickest, most logical thing to do is just send the actual file that the string was originally read from as an attachment. Preserving the state of our ouput and delivering it via the same channel of communication. 
+
+It was evident in the early stage of prototyping that desppite our pragmatic and simple approach, there would be no avoiding a complete rewrite of most of the code. 
+
+So, although our usecase and context remains rather untarnished by the corection, the output method had to be reconstructed with an added layer of abstraction (being the MESSAGE object.)
+
+This has inadvertantly introduced a very scalable and flexible layer to the our ouput control functions. 
+
+So yes, it is a patch in that there was a dreadful production halting bug present and v0.2.0's purpose was fixing it.
+Yet it's also not quite a patch in the classically defined sense, since it scales and adds scalability.
+
+Anyways, I present to you version 0.2.0! Don't get too comfortable with that 0 either real patches are sure to come and soon to come.
+

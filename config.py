@@ -1,25 +1,23 @@
-#Configuration for the script
+#Configuration settings for app
 
-#Webdriver, currently only supports Chrome
-#While this is True, output emails will only go to the development address
-TESTING = False
-
+#Webdriver, at the moment only one supported is Chrome
 WEBDRIVER = 'Chrome'
 
-#Set to true to run the webdriver in headless mode (not supported yet)
+#If set to True, ouput will only go to dev for debugging and testing 
+TESTING = True
 
+#Not yet supported: For running the webdriver in headless mode.
 HEADLESS = False
 
-#Set to false to have the script retrieve the facebook password from this file
-#WARNING this is not secure and is strongly advised against
-GET_PASS = True
+#If set to false, password will be read from PASSWORD in this file
+GET_PASS = True #warning: this is advised against
 
-#GECKODRIVER_PATH = 
+CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
 
-CHROMEDRIVER_PATH = '/usr/local/bin/Chromedriver'
-
-OUTPUT_DIR = 'data/'
+OUTPUT_DIR = 'data/')
 
 FACEBOOK_LOGIN = 'treycarmichael98@gmail.com'
 
-FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/2798143833582929/members/"
+FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/2798143833582929/members/'
+
+
