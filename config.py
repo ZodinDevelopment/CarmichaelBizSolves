@@ -18,6 +18,6 @@ OUTPUT_DIR = 'data/'
 
 FACEBOOK_LOGIN = 'treycarmichael98@gmail.com'
 
-FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/2798143833582929/members/'
+FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/2798143833582929/members/"
 
 
