@@ -14,7 +14,7 @@ GET_PASS = True #warning: this is advised against
 
 CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
 
-OUTPUT_DIR = 'data/')
+OUTPUT_DIR = 'data/'
 
 FACEBOOK_LOGIN = 'treycarmichael98@gmail.com'
 
