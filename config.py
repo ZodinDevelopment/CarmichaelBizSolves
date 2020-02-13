@@ -4,7 +4,7 @@
 WEBDRIVER = 'Chrome'
 
 #If set to True, ouput will only go to dev for debugging and testing 
-TESTING = True
+TESTING = False
 
 #Not yet supported: For running the webdriver in headless mode.
 HEADLESS = False
