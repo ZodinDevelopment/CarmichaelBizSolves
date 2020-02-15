@@ -1,7 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
-from email improt encoders
+from email import encoders
 
 
 FROM = 'garretdylan0702@gmail.com'
